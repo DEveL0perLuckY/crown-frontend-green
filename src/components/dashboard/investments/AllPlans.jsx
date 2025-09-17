@@ -38,7 +38,6 @@ export default function Investment({ data }) {
   const handleDataChange = (name, value) =>
     setAllData((prev) => ({ ...prev, [name]: value }));
 
-
   const createInvestment = (user, data) => {
     // Direct hardcoded API call for this service
     return axios.post(
@@ -55,7 +54,6 @@ export default function Investment({ data }) {
       }
     );
   };
-
 
   useEffect(() => {
     (async () => {
@@ -115,7 +113,7 @@ export default function Investment({ data }) {
           isInvestmentSubmitting: false,
           selectedToken: null,
         });
-        
+
         if (checkoutUrl) {
           // open after async call, using simulated click
           const a = document.createElement("a");
@@ -130,9 +128,6 @@ export default function Investment({ data }) {
       toast.error(error?.response?.data?.message || "Something went wrong");
     }
   };
-
-
-
 
   return (
     <>
@@ -159,11 +154,11 @@ export default function Investment({ data }) {
           });
         }}
       >
-          <div>
+        <div>
           <div className="flex items-center justify-end">
             <IoClose
               size="20"
-              className="text-black cursor-pointer"
+              className="text-black dark:text-white cursor-pointer"
               onClick={() => {
                 handleDataChange("isOpenModal", false);
                 handleDataChange("isTokenClicked", false);
@@ -171,14 +166,16 @@ export default function Investment({ data }) {
             />
           </div>
           <div className="w-full">
-            <p className="text-2xl text-gray-700 font-semibold leading-tighter">
+            <p className="text-2xl text-gray-700 dark:text-white font-semibold leading-tighter">
               {allData?.selectedModalPackage?.name} Package
             </p>
-            <p>{allData?.selectedModalPackage?.description}</p>
+            <p className="text-gray-700 dark:text-gray-300">
+              {allData?.selectedModalPackage?.description}
+            </p>
           </div>
 
           <div className="w-full mt-4">
-            <label className="block text-[#07153D] font-normal">
+            <label className="block text-[#07153D] dark:text-white font-normal">
               Select Package Type
             </label>
             <Select
@@ -198,7 +195,7 @@ export default function Investment({ data }) {
             />
           </div>
           <div className="w-full mt-4">
-            <label className="block text-[#07153D] font-normal">
+            <label className="block text-[#07153D] dark:text-white font-normal">
               Select Cryptocurrency
             </label>
             <Select
@@ -212,7 +209,7 @@ export default function Investment({ data }) {
           {allData.packageType?.value === "downline" && (
             <>
               <div className="w-full mt-4">
-                <label className="block text-[#07153D] font-normal">
+                <label className="block text-[#07153D] dark:text-white font-normal">
                   Enter Downline ID
                 </label>
                 <input
@@ -229,7 +226,7 @@ export default function Investment({ data }) {
           )}
 
           <div className="w-full mt-4">
-            <label className="block text-[#07153D] font-normal">
+            <label className="block text-[#07153D] dark:text-white font-normal">
               Investment Amount
             </label>
             <input
@@ -267,7 +264,7 @@ export default function Investment({ data }) {
           {allData.isVoucherClicked && (
             <>
               <div>
-                <label className="block text-[#07153D] font-normal mt-4">
+                <label className="block text-[#07153D] dark:text-white font-normal mt-4">
                   Deposit Amount
                 </label>
                 <input
@@ -279,7 +276,7 @@ export default function Investment({ data }) {
                 />
               </div>
               <div>
-                <label className="block text-[#07153D] font-normal mt-4">
+                <label className="block text-[#07153D] dark:text-white font-normal mt-4">
                   Voucher Amount
                 </label>
                 <input
@@ -295,7 +292,7 @@ export default function Investment({ data }) {
                         </p> */}
               </div>
               <div className="w-full mt-4">
-                <label className="block text-[#07153D] font-normal">
+                <label className="block text-[#07153D] dark:text-white font-normal">
                   Select Voucher
                 </label>
                 <Select
@@ -317,7 +314,7 @@ export default function Investment({ data }) {
             </>
           )}
 
-          <div className="flex items-center space-x-2 mt-4">
+          <div className="flex items-center space-x-2 mt-4 text-gray-700 dark:text-gray-300">
             <input
               type="checkbox"
               className="w-3 h-3 cursor-pointer"
@@ -343,7 +340,7 @@ export default function Investment({ data }) {
           </div>
 
           <Button
-            className="mt-3"
+            className="mt-3 bg-yellow-600 hover:bg-yellow-500"
             type="submit"
             // disabled={!isValid}
             loading={allData.isInvestmentSubmitting}
@@ -354,60 +351,63 @@ export default function Investment({ data }) {
         </div>
       </Modal>
 
-  <div className="px-4 py-6 md:px-6 lg:px-12">
-  {/* Mobile View: Vertical Cards */}
-  <div className="space-y-6 md:hidden">
-    {packageData.map((pkg, index) => (
-      <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 text-center">
-        <img
-          src={pkg.image}
-          alt={pkg.name}
-          className="w-full h-auto rounded-md object-contain"
-        />
-        <div className="mt-4 font-semibold text-lg text-gray-800 dark:text-white">
-          {pkg.name}
+      <div className="px-4 py-6 md:px-6 lg:px-12">
+        {/* Mobile View: Vertical Cards */}
+        <div className="space-y-6 md:hidden">
+          {packageData.map((pkg, index) => (
+            <div
+              key={index}
+              className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4 text-center"
+            >
+              <img
+                src={pkg.image}
+                alt={pkg.name}
+                className="w-full h-auto rounded-md object-contain"
+              />
+              <div className="mt-4 font-semibold text-lg text-gray-800 dark:text-white">
+                {pkg.name}
+              </div>
+              <button
+                onClick={() => {
+                  handleDataChange("isOpenModal", true);
+                  handleDataChange("selectedModalPackage", pkg);
+                }}
+                className="mt-3 w-full bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 rounded-md font-medium transition-all duration-200"
+              >
+                Purchase
+              </button>
+            </div>
+          ))}
         </div>
-        <button
-          onClick={() => {
-            handleDataChange("isOpenModal", true);
-            handleDataChange("selectedModalPackage", pkg);
-          }}
-          className="mt-3 w-full bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 rounded-md font-medium transition-all duration-200"
-        >
-          Purchase
-        </button>
-      </div>
-    ))}
-  </div>
 
-  {/* Desktop View: Horizontal Cards with Larger Images and Narrower Buttons */}
-  <div className="hidden md:flex justify-between gap-6">
-    {packageData.map((pkg, index) => (
-      <div key={index} className="w-1/3 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 text-center relative">
-        <img
-          src={pkg.image}
-          alt={pkg.name}
-          className="w-full  object-contain rounded-md"
-        />
-        <div className="mt-4 font-semibold text-lg text-gray-800 dark:text-white">
-          {pkg.name}
+        {/* Desktop View: Horizontal Cards with Larger Images and Narrower Buttons */}
+        <div className="hidden md:flex justify-between gap-6">
+          {packageData.map((pkg, index) => (
+            <div
+              key={index}
+              className="w-1/3 bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg  backdrop-blur-sm shadow-lg p-6 text-center relative"
+            >
+              <img
+                src={pkg.image}
+                alt={pkg.name}
+                className="w-full  object-contain rounded-md"
+              />
+              <div className="mt-4 font-semibold text-lg text-gray-800 dark:text-white">
+                {pkg.name}
+              </div>
+              <button
+                onClick={() => {
+                  handleDataChange("isOpenModal", true);
+                  handleDataChange("selectedModalPackage", pkg);
+                }}
+                className="mt-4 w-3/4 mx-auto bg-green-600 hover:bg-green-500 text-white py-2.5 rounded-md font-medium transition-all duration-200"
+              >
+                Purchase
+              </button>
+            </div>
+          ))}
         </div>
-        <button
-          onClick={() => {
-            handleDataChange("isOpenModal", true);
-            handleDataChange("selectedModalPackage", pkg);
-          }}
-          className="mt-4 w-3/4 mx-auto bg-[#42c977] hover:bg-[#37b569] text-white py-2.5 rounded-md font-medium transition-all duration-200"
-        >
-          Purchase
-        </button>
       </div>
-    ))}
-  </div>
-</div>
-
-
-
     </>
   );
 }

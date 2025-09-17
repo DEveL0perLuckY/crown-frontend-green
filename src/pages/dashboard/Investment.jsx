@@ -82,9 +82,9 @@ export default function Investment() {
             {packageData.map((pkg, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden"
+                className="bg-white dark:bg-[#121212] rounded-lg shadow-md overflow-hidden"
               >
-                <div className="bg-green-500 p-4 text-white text-center">
+                <div className="bg-yellow-500 p-4 text-white text-center">
                   <div className="bg-white rounded-full h-12 w-12 flex items-center justify-center mx-auto mb-2">
                     <img src={pkg.image} alt={pkg.name} className="h-8 w-8" />
                   </div>
@@ -100,20 +100,33 @@ export default function Investment() {
                     <div className="flex justify-between">
                       <span>Daily Energy Yield</span>
                       <span className="font-semibold">
-                        {pkg.dailyReturns} - {parseFloat(pkg.dailyReturns) + 0.3}%
+                        {pkg.dailyReturns} -{" "}
+                        {parseFloat(pkg.dailyReturns) + 0.3}%
                       </span>
                     </div>
 
                     <div className="flex justify-between">
                       <span>Duration</span>
-                      <span className="font-semibold">{pkg.durationInDays} days</span>
+                      <span className="font-semibold">
+                        {pkg.durationInDays} days
+                      </span>
                     </div>
 
                     <div className="flex justify-between">
                       <span>Total Energy Output</span>
                       <span className="font-semibold">
-                        {Math.round(parseFloat(pkg.dailyReturns) * pkg.durationInDays * 1.5)}% -{" "}
-                        {Math.round(parseFloat(pkg.dailyReturns) * pkg.durationInDays * 1.8)}%
+                        {Math.round(
+                          parseFloat(pkg.dailyReturns) *
+                            pkg.durationInDays *
+                            1.5
+                        )}
+                        % -{" "}
+                        {Math.round(
+                          parseFloat(pkg.dailyReturns) *
+                            pkg.durationInDays *
+                            1.8
+                        )}
+                        %
                       </span>
                     </div>
 
@@ -130,7 +143,12 @@ export default function Investment() {
                     <div className="flex justify-between">
                       <span>Power Capacity</span>
                       <span className="font-semibold">
-                        ${index === 0 ? "1,000" : index === 1 ? "3,500" : "7,000"}
+                        $
+                        {index === 0
+                          ? "1,000"
+                          : index === 1
+                          ? "3,500"
+                          : "7,000"}
                       </span>
                     </div>
 
@@ -167,9 +185,11 @@ export default function Investment() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-white dark:bg-[#121212]">
       <div className="mb-6">
-        <h1 className="text-2xl font-semibold text-black dark:text-white">Investment</h1>
+        <h1 className="text-2xl font-semibold text-black dark:text-white">
+          Investment
+        </h1>
         <p className="text-gray-600 dark:text-gray-400">
           Let's check your update today
         </p>
@@ -177,29 +197,39 @@ export default function Investment() {
 
       {/* Tabs */}
       <div className="flex overflow-x-auto">
-  {[
-    { id: "allPlans", label: "All Plans", icon: FaChartLine },
-    { id: "packageActivation", label: "Package Activation", icon: FaDollarSign },
-    { id: "downlineActivation", label: "Downline Activation", icon: FaUserFriends },
-  ].map((tab) => (
-    <button
-      key={tab.id}
-      onClick={() => setActiveTab(tab.id)}
-      className={`py-3 px-4 flex items-center border-b-2 transition-colors duration-200 ${
-        activeTab === tab.id
-          ? 'border-green-500 text-gray-900 dark:text-white'
-          : 'border-transparent text-gray-500 dark:text-gray-400'
-      }`}
-    >
-      <tab.icon className="mr-2" />
-      {tab.label}
-    </button>
-  ))}
-</div>
-
+        {[
+          { id: "allPlans", label: "All Plans", icon: FaChartLine },
+          {
+            id: "packageActivation",
+            label: "Package Activation",
+            icon: FaDollarSign,
+          },
+          {
+            id: "downlineActivation",
+            label: "Downline Activation",
+            icon: FaUserFriends,
+          },
+        ].map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`py-3 px-4 flex items-center border-b-2 transition-colors duration-200 ${
+              activeTab === tab.id
+                ? "border-yellow-500 text-gray-900 dark:text-white"
+                : "border-transparent text-gray-500 dark:text-gray-400"
+            }`}
+          >
+            <tab.icon className="mr-2" />
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
       {/* Content */}
-      <div className="bg-gray-100 dark:bg-gray-800 rounded-b-lg p-4" data-component="AllPlans">
+      <div
+        className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  shadow p-6 backdrop-blur-sm"
+        data-component="AllPlans"
+      >
         {renderTabContent()}
       </div>
     </div>

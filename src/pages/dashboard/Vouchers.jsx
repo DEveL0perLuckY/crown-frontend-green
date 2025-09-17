@@ -101,7 +101,7 @@ export default function Vouchers() {
       </div>
 
       {/* Content */}
-      <div className="bg-white dark:bg-[#1E293B] rounded-b-lg p-5">
+      <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700 shadow backdrop-blur-sm p-6">
         {activeTab === "list" ? (
           <AllVouchers
             vouchers={filteredVouchers}

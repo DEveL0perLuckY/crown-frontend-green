@@ -82,7 +82,7 @@ export default function DownlineActivation({ data }) {
     <div className="p-6">
       {/* Summary Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 dark:text-gray-400">Total Downlines</p>
@@ -94,7 +94,7 @@ export default function DownlineActivation({ data }) {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 dark:text-gray-400">Total Investment</p>
@@ -108,7 +108,7 @@ export default function DownlineActivation({ data }) {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 dark:text-gray-400">Active Packages</p>
@@ -122,13 +122,13 @@ export default function DownlineActivation({ data }) {
       </div>
 
       {/* Search Bar */}
-      <div className="bg-white dark:bg-[#1E293B] rounded-lg p-4 mb-6 shadow">
+      <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg  backdrop-blur-sm p-4 mb-6 shadow">
         <div className="relative">
           <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           <input
             type="text"
             placeholder="Search by user ID or package..."
-            className="w-full pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+            className="w-full pl-10 pr-4 py-2 bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700 shadow backdrop-blur-sm text-gray-900 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -194,7 +194,7 @@ export default function DownlineActivation({ data }) {
 
       {/* No Data Messages */}
       {formattedData.length === 0 && (
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-8 text-center shadow mt-8">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg  backdrop-blur-sm p-8 text-center shadow mt-8">
           <FaUsers className="text-gray-400 dark:text-gray-600 text-4xl mx-auto mb-4" />
           <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Downline Activations</h3>
           <p className="text-gray-500 dark:text-gray-400">

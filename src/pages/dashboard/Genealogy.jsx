@@ -65,7 +65,7 @@ export default function Genealogy() {
 
       {/* Referral Tab */}
       {activeTab === "Referral" && (
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700 shadow p-6 backdrop-blur-sm">
           <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white mb-4">
             Referral Network
           </h3>
@@ -79,7 +79,7 @@ export default function Genealogy() {
         
 
           {/* Binary Tree */}
-          <div className="bg-white dark:bg-gray-800 rounded-lg shadow mt-6">
+          <div className="bg-white dark:bg-[#121212]  shadow  backdrop-blur-sm mt-6">
             <div className="p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white">
                 Network Structure

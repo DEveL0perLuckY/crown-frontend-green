@@ -102,7 +102,7 @@ export default function ROIReport({ data }) {
   ];
   
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-2">
           <button
@@ -110,7 +110,7 @@ export default function ROIReport({ data }) {
             className={`px-3 py-1 rounded ${
               dateFilter === "all" 
                 ? "bg-green-500 text-white" 
-                : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                : "bg-gray-200 dark:bg-[#121212] text-gray-700 dark:text-gray-300"
             }`}
           >
             All Reports
@@ -141,7 +141,7 @@ export default function ROIReport({ data }) {
       </div>
       
       <div className="overflow-x-auto">
-        <table className="min-w-full">
+        <table className="min-w-full bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <thead>
             <tr className="border-b border-gray-200 dark:border-gray-700">
               {customColumns.map((column) => (

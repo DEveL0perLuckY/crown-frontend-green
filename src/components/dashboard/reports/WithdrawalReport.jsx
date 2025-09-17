@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { reportWithdrawalColumns } from "../../../constants/Column";
 import Table from "../global/Table";
-import { PDFDownloadLink, Document, Page, Text, View, StyleSheet } from "@react-pdf/renderer";
+import {
+  PDFDownloadLink,
+  Document,
+  Page,
+  Text,
+  View,
+  StyleSheet,
+} from "@react-pdf/renderer";
 import { Download } from "lucide-react";
 // Create styles for PDF
 const styles = StyleSheet.create({
@@ -84,7 +91,7 @@ const ReportPDF = ({ data, title, dateFilter, walletFilter }) => (
         {dateFilter === "all" ? "All Time Reports" : "Last 30 Days Reports"}
         {walletFilter !== "all" ? ` - ${walletFilter}` : " - All Wallets"}
       </Text>
-      
+
       <View style={styles.table}>
         {/* Table Headers */}
         <View style={[styles.tableRow, styles.tableHeader]}>
@@ -98,31 +105,56 @@ const ReportPDF = ({ data, title, dateFilter, walletFilter }) => (
           <Text style={[styles.tableCell, { width: "10%" }]}>FINAL AMT</Text>
           <Text style={[styles.tableCell, { width: "10%" }]}>STATUS</Text>
         </View>
-        
+
         {/* Table Rows */}
         {data.map((item, index) => (
           <View key={index} style={styles.tableRow}>
             <Text style={[styles.tableCell, { width: "5%" }]}>{item.id}</Text>
-            <Text style={[styles.tableCell, { width: "12%" }]}>{item.date}</Text>
-            <Text style={[styles.tableCell, { width: "10%" }, styles.greenText]}>${item.amount}</Text>
-            <Text style={[styles.tableCell, { width: "8%" }]}>{item.charges}%</Text>
-            <Text style={[styles.tableCell, { width: "15%" }]}>{item.withdrawalMethod}</Text>
-            <Text style={[styles.tableCell, { width: "15%" }]}>{item.walletSource}</Text>
-            <Text style={[styles.tableCell, { width: "15%" }]}>{item.cryptoType}</Text>
-            <Text style={[styles.tableCell, { width: "10%" }, styles.greenText]}>${item.finalAmount}</Text>
-            <Text style={[
-              styles.tableCell, 
-              { width: "10%" },
-              item.status?.toLowerCase() === "approved" ? styles.approved :
-              item.status?.toLowerCase() === "pending" ? styles.pending : styles.rejected
-            ]}>
+            <Text style={[styles.tableCell, { width: "12%" }]}>
+              {item.date}
+            </Text>
+            <Text
+              style={[styles.tableCell, { width: "10%" }, styles.greenText]}
+            >
+              ${item.amount}
+            </Text>
+            <Text style={[styles.tableCell, { width: "8%" }]}>
+              {item.charges}%
+            </Text>
+            <Text style={[styles.tableCell, { width: "15%" }]}>
+              {item.withdrawalMethod}
+            </Text>
+            <Text style={[styles.tableCell, { width: "15%" }]}>
+              {item.walletSource}
+            </Text>
+            <Text style={[styles.tableCell, { width: "15%" }]}>
+              {item.cryptoType}
+            </Text>
+            <Text
+              style={[styles.tableCell, { width: "10%" }, styles.greenText]}
+            >
+              ${item.finalAmount}
+            </Text>
+            <Text
+              style={[
+                styles.tableCell,
+                { width: "10%" },
+                item.status?.toLowerCase() === "approved"
+                  ? styles.approved
+                  : item.status?.toLowerCase() === "pending"
+                  ? styles.pending
+                  : styles.rejected,
+              ]}
+            >
               {item.status}
             </Text>
           </View>
         ))}
       </View>
-      
-      <Text style={styles.footer}>Generated on {new Date().toLocaleString()}</Text>
+
+      <Text style={styles.footer}>
+        Generated on {new Date().toLocaleString()}
+      </Text>
     </Page>
   </Document>
 );
@@ -145,24 +177,26 @@ export default function WithdrawalReport({ data }) {
       }, 500);
       return () => clearTimeout(timer);
     }
-     setIsDownloadReady(false);
+    setIsDownloadReady(false);
   }, [filteredData]);
 
   const filterData = () => {
     let filtered = [...(data || [])];
-    
+
     // Apply date filter
     if (dateFilter === "last30days") {
       const thirtyDaysAgo = new Date();
       thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-      filtered = filtered.filter(item => new Date(item.date) >= thirtyDaysAgo);
+      filtered = filtered.filter(
+        (item) => new Date(item.date) >= thirtyDaysAgo
+      );
     }
-    
+
     // Apply wallet filter
     if (walletFilter !== "all") {
-      filtered = filtered.filter(item => item.wallet_source === walletFilter);
+      filtered = filtered.filter((item) => item.wallet_source === walletFilter);
     }
-    
+
     setFilteredData(filtered);
   };
 
@@ -171,7 +205,7 @@ export default function WithdrawalReport({ data }) {
     id: index + 1,
     cryptoType: el?.crypto_type,
     walletType: el?.wallet_type,
-    walletSource: el?.wallet_source ,
+    walletSource: el?.wallet_source,
     finalAmount: el?.final_amount
       ? parseFloat(el?.final_amount).toFixed(2)
       : parseFloat(0)?.toFixed(2),
@@ -221,23 +255,27 @@ export default function WithdrawalReport({ data }) {
       Header: "STATUS",
       accessor: "status",
       Cell: ({ value }) => (
-        <span className={`px-2 py-1 rounded-md text-xs ${
-          value?.toLowerCase() === "approved" ? "bg-green-900 text-green-400" :
-          value?.toLowerCase() === "pending" ? "bg-blue-900 text-blue-400" :
-          "bg-red-900 text-red-400"
-        }`}>
+        <span
+          className={`px-2 py-1 rounded-md text-xs ${
+            value?.toLowerCase() === "approved"
+              ? "bg-green-900 text-green-400"
+              : value?.toLowerCase() === "pending"
+              ? "bg-blue-900 text-blue-400"
+              : "bg-red-900 text-red-400"
+          }`}
+        >
           {value}
         </span>
       ),
     },
   ];
-  
+
   // Get the report title based on wallet filter
   const getReportTitle = () => {
     if (walletFilter === "all") return "Withdrawal Reports";
     return `${walletFilter} Reports`;
   };
-  
+
   return (
     <div className="h-full w-full">
       <div className="flex justify-between items-center mb-4">
@@ -245,8 +283,8 @@ export default function WithdrawalReport({ data }) {
           <button
             onClick={() => setDateFilter("all")}
             className={`px-3 py-1 rounded ${
-              dateFilter === "all" 
-                ? "bg-green-500 text-white" 
+              dateFilter === "all"
+                ? "bg-green-500 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
             }`}
           >
@@ -255,15 +293,15 @@ export default function WithdrawalReport({ data }) {
           <button
             onClick={() => setDateFilter("last30days")}
             className={`px-3 py-1 rounded ${
-              dateFilter === "last30days" 
-                ? "bg-green-500 text-white" 
+              dateFilter === "last30days"
+                ? "bg-green-500 text-white"
                 : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
             }`}
           >
             Last 30 Days
           </button>
         </div>
-        
+
         <div className="flex items-center space-x-4">
           <select
             value={walletFilter}
@@ -275,28 +313,34 @@ export default function WithdrawalReport({ data }) {
             <option value="R&B Wallet">R&B Wallet</option>
             <option value="Extra Income Wallet">Extra Income Wallet</option>
           </select>
-          
+
           {/* PDF Download Button */}
           {isDownloadReady && formattedData.length > 0 ? (
             <PDFDownloadLink
               document={
-                <ReportPDF 
-                  data={formattedData} 
+                <ReportPDF
+                  data={formattedData}
                   title={getReportTitle()}
                   dateFilter={dateFilter}
                   walletFilter={walletFilter}
                 />
               }
-              fileName={`${getReportTitle().replace(/\s+/g, "-").toLowerCase()}-${dateFilter}-${new Date().toISOString().split("T")[0]}.pdf`}
+              fileName={`${getReportTitle()
+                .replace(/\s+/g, "-")
+                .toLowerCase()}-${dateFilter}-${
+                new Date().toISOString().split("T")[0]
+              }.pdf`}
               className="px-3 py-1 rounded bg-green-500 hover:bg-green-600 text-white flex items-center"
             >
-              {({ loading }) => (
-                loading ? 
-                <span>Preparing...</span> : 
-                <span className="flex items-center">
-                  <Download className="w-4 h-4 mr-1" /> Download PDF
-                </span>
-              )}
+              {({ loading }) =>
+                loading ? (
+                  <span>Preparing...</span>
+                ) : (
+                  <span className="flex items-center">
+                    <Download className="w-4 h-4 mr-1" /> Download PDF
+                  </span>
+                )
+              }
             </PDFDownloadLink>
           ) : (
             <button
@@ -308,13 +352,16 @@ export default function WithdrawalReport({ data }) {
           )}
         </div>
       </div>
-      
+
       <div className="overflow-x-auto">
-        <table className="min-w-full text-gray-400">
+        <table className="min-w-full bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <thead className="border-b border-gray-700">
             <tr>
               {customColumns.map((column) => (
-                <th key={column.Header} className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider">
+                <th
+                  key={column.Header}
+                  className="px-6 py-3 text-left text-xs font-medium text-black uppercase tracking-wider"
+                >
                   {column.Header}
                 </th>
               ))}
@@ -326,14 +373,19 @@ export default function WithdrawalReport({ data }) {
                 <tr key={rowIndex} className="hover:bg-gray-800">
                   {customColumns.map((column, colIndex) => (
                     <td key={colIndex} className="px-6 py-4 whitespace-nowrap">
-                      {column.Cell ? column.Cell({ value: row[column.accessor] }) : row[column.accessor]}
+                      {column.Cell
+                        ? column.Cell({ value: row[column.accessor] })
+                        : row[column.accessor]}
                     </td>
                   ))}
                 </tr>
               ))
             ) : (
               <tr>
-                <td colSpan={customColumns.length} className="px-6 py-4 text-center text-gray-500">
+                <td
+                  colSpan={customColumns.length}
+                  className="px-6 py-4 text-center text-gray-500"
+                >
                   No data available
                 </td>
               </tr>

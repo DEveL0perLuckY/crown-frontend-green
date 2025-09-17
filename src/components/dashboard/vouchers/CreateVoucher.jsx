@@ -92,7 +92,7 @@ export default function CreateVoucher() {
   };
 
   return (
-    <div className="bg-white dark:bg-[#2D3748] p-6 rounded-lg max-w-2xl mx-auto shadow">
+    <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg  p-6 backdrop-blur-sm max-w-2xl mx-auto shadow">
       <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
         Generate Voucher Card
       </h2>
@@ -133,18 +133,18 @@ export default function CreateVoucher() {
             handleFromDataChange("selectedWallet", value)
           }
           value={formData.selectedWallet}
-          className="bg-gray-100 dark:bg-[#1E293B] text-gray-900 dark:text-white border border-gray-300 dark:border-gray-700"
+          className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700   text-gray-900 dark:text-white "
         />
       </div>
 
-      <Button
-        className="w-full bg-green-500 hover:bg-green-600"
+      <button
+        className="w-full rounded-md px-4 py-2 text-white  bg-green-500 hover:bg-green-600"
         loading={loadingStates.isVoucherLoading}
         onClick={handleVoucherSubmit}
         disabled={!!formErrors.amount || !formData.selectedWallet}
       >
         Generate Voucher
-      </Button>
+      </button>
     </div>
   );
 }

@@ -284,7 +284,7 @@ export default function Home() {
 
               {allowedTransferId === user?.user?.userId && (
                 <button
-                  className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
+                  className="bg-yellow-600 hover:bg-yellow-700 text-white px-8 py-3 rounded-md text-lg font-semibold"
                   onClick={() => setIsTransferModalOpen(true)}
                 >
                   Transfer
@@ -444,7 +444,7 @@ export default function Home() {
                 </p>
               </div>
               <button
-                className="w-32 mr-14 bg-primary h-12 p-2 rounded-lg font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
+                className="w-32 mr-14 bg-primary h-12 p-2 font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
                 onClick={() =>
                   navigator.clipboard.writeText(userData.referralLinks.right)
                 }

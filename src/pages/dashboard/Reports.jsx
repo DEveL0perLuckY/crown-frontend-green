@@ -139,7 +139,7 @@ export default function Reports() {
       </div>
 
       {/* Tabs */}
-      <div className="bg-white dark:bg-[#1E293B] rounded-t-lg overflow-x-auto shadow-sm">
+      <div className="bg-white dark:bg-[#121212] rounded-t-lg overflow-x-auto shadow-sm">
         <div className="flex flex-wrap">
           {tabItems.map((tab) => (
             <button
@@ -159,7 +159,7 @@ export default function Reports() {
       </div>
 
       {/* Tab header */}
-      <div className="bg-white dark:bg-[#1E293B] px-4 py-4 border-t border-gray-200 dark:border-gray-700 shadow-sm">
+      <div className="bg-white dark:bg-gray-700/20 border-t border-gray-200 dark:border-gray-700 shadow p-6 backdrop-blur-sm px-4 py-4">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0">
           <h2 className="text-xl text-gray-900 dark:text-white font-medium">
             {{
@@ -174,7 +174,7 @@ export default function Reports() {
       </div>
 
       {/* Tab content */}
-      <div className="bg-white dark:bg-[#1E293B] rounded-b-lg overflow-hidden p-4 shadow-sm">
+      <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700 backdrop-blur-sm  overflow-hidden p-4 shadow-sm">
         {renderTabContent()}
       </div>
     </div>

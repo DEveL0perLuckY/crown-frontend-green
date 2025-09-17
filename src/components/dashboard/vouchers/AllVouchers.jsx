@@ -35,7 +35,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
   return (
     <div>
       {/* Tabs for Active and Used Vouchers */}
-      <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
+      <div className="mb-6 border-b border-gray-200 dark:border-gray-700 text:black dark:text-white">
         <ul className="flex flex-wrap -mb-px text-sm font-medium text-center">
           <li className="mr-2">
             <button
@@ -69,7 +69,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {activeVouchers.length > 0 ? (
             activeVouchers.map((voucher, index) => (
-              <div key={index} className="bg-white dark:bg-[#2D3748] rounded-lg overflow-hidden shadow">
+              <div key={index} className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm overflow-hidden ">
                 <div className="p-4 flex justify-between items-center bg-green-500">
                   <div className="flex items-center">
                     <RiTicketLine className="text-white text-2xl mr-2" />
@@ -141,7 +141,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
       {/* Used Vouchers */}
       {activeTab === "used" && (
         <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+          <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700 bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
             <thead className="bg-gray-50 dark:bg-gray-800">
               <tr>
                 <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">

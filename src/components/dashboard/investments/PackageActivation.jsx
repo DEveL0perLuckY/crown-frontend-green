@@ -9,10 +9,10 @@ export default function PackageActivation({ data }) {
 
   const formattedData = data.map((el, index) => {
     // Get the package details from packageData
-    const packageDetails = packageData.find(pkg => 
-      pkg.name.toLowerCase() === el?.package_name?.toLowerCase()
+    const packageDetails = packageData.find(
+      (pkg) => pkg.name.toLowerCase() === el?.package_name?.toLowerCase()
     );
-    
+
     // Calculate returns range based on package
     let returnsRange = "";
     if (packageDetails) {
@@ -33,7 +33,7 @@ export default function PackageActivation({ data }) {
         returnsRange = "0%";
       }
     }
-    
+
     return {
       ...el,
       id: index + 1,
@@ -47,7 +47,8 @@ export default function PackageActivation({ data }) {
       progress: Math.min(
         100,
         Math.round(
-          (moment().diff(moment(el?.investment_date), "days") / el?.duration) * 100
+          (moment().diff(moment(el?.investment_date), "days") / el?.duration) *
+            100
         )
       ),
     };
@@ -78,11 +79,13 @@ export default function PackageActivation({ data }) {
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
         {/* Total Packages */}
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 dark:text-gray-400">Total Packages</p>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">{formattedData.length}</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
+                {formattedData.length}
+              </h3>
             </div>
             <div className="bg-green-500/20 p-3 rounded-full">
               <FaBox className="text-green-500 text-xl" />
@@ -91,12 +94,17 @@ export default function PackageActivation({ data }) {
         </div>
 
         {/* Total Investment */}
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-gray-500 dark:text-gray-400">Total Investment</p>
+              <p className="text-gray-500 dark:text-gray-400">
+                Total Investment
+              </p>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-                ${formattedData.reduce((sum, item) => sum + parseFloat(item.invested), 0).toFixed(2)}
+                $
+                {formattedData
+                  .reduce((sum, item) => sum + parseFloat(item.invested), 0)
+                  .toFixed(2)}
               </h3>
             </div>
             <div className="bg-green-500/20 p-3 rounded-full">
@@ -106,12 +114,15 @@ export default function PackageActivation({ data }) {
         </div>
 
         {/* Active Days */}
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-6 shadow">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center justify-between">
             <div>
               <p className="text-gray-500 dark:text-gray-400">Active Days</p>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mt-2">
-                {formattedData.reduce((sum, item) => sum + parseInt(item.days), 0)}
+                {formattedData.reduce(
+                  (sum, item) => sum + parseInt(item.days),
+                  0
+                )}
               </h3>
             </div>
             <div className="bg-green-500/20 p-3 rounded-full">
@@ -124,23 +135,36 @@ export default function PackageActivation({ data }) {
       {/* Package Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
         {sortedData.map((item) => (
-          <div key={item.id} className="bg-white dark:bg-[#1E293B] rounded-lg overflow-hidden shadow">
+          <div
+            key={item.id}
+            className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm overflow-hidden"
+          >
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{item.package}</h3>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">ID: {item.id}</p>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    {item.package}
+                  </h3>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm">
+                    ID: {item.id}
+                  </p>
                 </div>
                 <div className="bg-green-500/20 px-3 py-1 rounded-full">
-                  <span className="text-green-500 text-sm">${item.invested}</span>
+                  <span className="text-green-500 text-sm">
+                    ${item.invested}
+                  </span>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="text-gray-500 dark:text-gray-400">Progress</span>
-                    <span className="text-gray-900 dark:text-white">{item.progress}%</span>
+                    <span className="text-gray-500 dark:text-gray-400">
+                      Progress
+                    </span>
+                    <span className="text-gray-900 dark:text-white">
+                      {item.progress}%
+                    </span>
                   </div>
                   <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                     <div
@@ -152,20 +176,34 @@ export default function PackageActivation({ data }) {
 
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">Duration</p>
-                    <p className="text-gray-900 dark:text-white">{item.days} Days</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      Duration
+                    </p>
+                    <p className="text-gray-900 dark:text-white">
+                      {item.days} Days
+                    </p>
                   </div>
                   <div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">Returns</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      Returns
+                    </p>
                     <p className="text-green-500">{item.returnsRange}</p>
                   </div>
                   <div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">Start Date</p>
-                    <p className="text-gray-900 dark:text-white">{moment(item.investmentDate).format("MMM DD, YYYY")}</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      Start Date
+                    </p>
+                    <p className="text-gray-900 dark:text-white">
+                      {moment(item.investmentDate).format("MMM DD, YYYY")}
+                    </p>
                   </div>
                   <div>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">End Date</p>
-                    <p className="text-gray-900 dark:text-white">{moment(item.expiry).format("MMM DD, YYYY")}</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      End Date
+                    </p>
+                    <p className="text-gray-900 dark:text-white">
+                      {moment(item.expiry).format("MMM DD, YYYY")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -176,9 +214,11 @@ export default function PackageActivation({ data }) {
 
       {/* Empty State */}
       {formattedData.length === 0 && (
-        <div className="bg-white dark:bg-[#1E293B] rounded-lg p-8 text-center shadow">
-          <FaBox className="text-gray-400 dark:text-gray-600 text-4xl mx-auto mb-4" />
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">No Active Packages</h3>
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg  backdrop-blur-sm p-8 text-center shadow">
+          <FaBox className="text-green-600 text-4xl mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+            No Active Packages
+          </h3>
           <p className="text-gray-500 dark:text-gray-400">
             You don't have any active investment packages at the moment.
           </p>
