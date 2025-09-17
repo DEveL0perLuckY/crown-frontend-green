@@ -56,7 +56,7 @@ const Navbar = ({ pageTitle, toggleSidebar }) => {
   };
 
   return (
-    <header className="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+    <header className="bg-white dark:bg-[#121212] border-b border-gray-200 dark:border-gray-700">
       <div className="flex items-center justify-between px-4 py-3">
         <div className="flex items-center">
           <button
@@ -107,11 +107,11 @@ const Navbar = ({ pageTitle, toggleSidebar }) => {
               onClick={toggleProfile}
               className="flex items-center space-x-2"
             >
-              <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border-2 border-green-500">
+              <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden border-2 border-yellow-500">
                 <img
                   src="/assets/logo1.png"
                   alt="User avatar"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover ml-[2.5px]"
                 />
               </div>
               <ChevronDown
@@ -121,7 +121,7 @@ const Navbar = ({ pageTitle, toggleSidebar }) => {
             </button>
 
             {isProfileOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg z-50 border border-gray-200 dark:border-gray-700">
+              <div className="absolute right-0 mt-2 w-48 bg-white dark:bg-[#121212] rounded-md shadow-lg z-50 border border-gray-200 dark:border-gray-700">
                 <div className="py-1">
                   <Link
                     to="/dashboard/settings/profile"

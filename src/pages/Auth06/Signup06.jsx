@@ -31,8 +31,8 @@ function Signup06() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [state, setState] = useState("");
-  const [city, setCity] = useState("");
+  // const [state, setState] = useState("");
+  // const [city, setCity] = useState("");
   const [currentStep, setCurrentStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -43,6 +43,8 @@ function Signup06() {
     firstName: "",
     lastName: "",
     country: null,
+    state: "",
+    city: "",
     phoneNumber: "",
     email: "",
     confirmEmail: "",
@@ -55,6 +57,8 @@ function Signup06() {
     firstName: "",
     lastName: "",
     country: "",
+    state: "",
+    city: "",
     phoneNumber: "",
     email: "",
     confirmEmail: "",
@@ -67,6 +71,8 @@ function Signup06() {
     firstName: false,
     lastName: false,
     country: false,
+    state: false,
+    city: false,
     phoneNumber: false,
     email: false,
     confirmEmail: false,
@@ -107,6 +113,12 @@ function Signup06() {
         break;
       case "country":
         error = value ? "" : "Please select a country";
+        break;
+      case "state":
+        error = value.trim() === "" ? "State is required" : "";
+        break;
+      case "city":
+        error = value.trim() === "" ? "City is required" : "";
         break;
       case "phoneNumber":
         error = value.trim() === "" ? "Phone number is required" : "";
@@ -228,8 +240,8 @@ function Signup06() {
         phone: formData.phoneNumber,
         username: `${formData.firstName} ${formData.lastName}`,
         country: formData?.country?.label,
-        state: state,
-        city: city,
+        state: formData.state,
+        city: formData.city,
       });
 
       if (response?.data?.success) {
@@ -271,9 +283,13 @@ function Signup06() {
           formData.email &&
           formData.phoneNumber &&
           formData.country &&
+          formData.state &&
+          formData.city &&
           !errors.email &&
           !errors.phoneNumber &&
           !errors.country &&
+          !errors.state &&
+          !errors.city &&
           formData.confirmEmail &&
           !errors.confirmEmail
         );
@@ -655,34 +671,45 @@ function Signup06() {
                   </div>
 
                   {/* State and City for Nigeria */}
-                  {formData.country?.value === "NG" && (
-                    <div className="grid grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
-                          State
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                          placeholder="Lagos"
-                          value={state}
-                          onChange={(e) => setState(e.target.value)}
-                        />
-                      </div>
-                      <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
-                          City
-                        </label>
-                        <input
-                          type="text"
-                          className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 transition-all"
-                          placeholder="Ikeja"
-                          value={city}
-                          onChange={(e) => setCity(e.target.value)}
-                        />
-                      </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        State
+                      </label>
+                      <input
+                        type="text"
+                        name="state"
+                        className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border ${
+                          errors.email && touched.email
+                            ? "border-red-500 focus:border-red-500"
+                            : "border-gray-700 focus:border-green-500"
+                        } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all`}
+                        placeholder="Lagos"
+                        value={formData.state}
+                        onChange={handleChange}
+                        onBlur={() => handleBlur("state")}
+                      />
                     </div>
-                  )}
+                    <div>
+                      <label className="block text-sm font-medium text-gray-300 mb-2">
+                        City
+                      </label>
+                      <input
+                        type="text"
+                        name="city"
+                        className={`w-full pl-10 pr-4 py-3 bg-gray-800/50 border ${
+                          errors.email && touched.email
+                            ? "border-red-500 focus:border-red-500"
+                            : "border-gray-700 focus:border-green-500"
+                        } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500/20 transition-all`}
+                        placeholder="Ikeja"
+                        value={formData.city}
+                        onChange={handleChange}
+                        onBlur={() => handleBlur("city")}
+                      />
+                    </div>
+                  </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-300 mb-2">

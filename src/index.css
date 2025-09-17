@@ -38,6 +38,7 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    
   }
   .dark {
     --background: 222.2 84% 4.9%;
@@ -115,9 +116,6 @@ html.lenis {
   pointer-events: none;
 }
 
-
-
-
 /* New Css */
 /* Added custom CSS properties and styles from original Planvest design */
 :root {
@@ -130,10 +128,32 @@ html.lenis {
   --green-neon: #a7ec4f;
   --green-dark: #122e26;
   --green-accent: #086350;
-  --gradient-left: linear-gradient(262.01deg, #105742 -12.43%, #076653 45.32%, #e3ef26 125.28%);
-  --gradient-right: linear-gradient(262.01deg, #e3ef26 -7.22%, #076653 72.74%, #0c342c 130.49%);
-  --gradient-bottom: linear-gradient(230deg, #122e26 62%, #07664e 75.68%, #b7d42f 98.31%);
-  --gradient-footer: linear-gradient(180deg, #0c342c 46.04%, #076653 84.68%, #e3ef26 130.31%);
+  --gradient-left: linear-gradient(
+    262.01deg,
+    #105742 -12.43%,
+    #076653 45.32%,
+    #e3ef26 125.28%
+  );
+  --gradient-right: linear-gradient(
+    262.01deg,
+    #e3ef26 -7.22%,
+    #076653 72.74%,
+    #0c342c 130.49%
+  );
+  --gradient-bottom: linear-gradient(
+    230deg,
+    #122e26 62%,
+    #07664e 75.68%,
+    #b7d42f 98.31%
+  );
+  --gradient-footer: linear-gradient(
+    180deg,
+    #0c342c 46.04%,
+    #076653 84.68%,
+    #e3ef26 130.31%
+  );
+
+  --crown-primary: #ffcc66;
 
   /* Shadcn variables */
   --background: oklch(1 0 0);
@@ -243,7 +263,9 @@ html.lenis {
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
-
+.crown{
+  color: var(--crown-primary);
+}
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -464,7 +486,6 @@ html.lenis {
     font-size: 36px;
   }
 }
-
 
 html {
   scroll-behavior: smooth;

@@ -68,11 +68,11 @@ export default function CryptoPrice() {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+    <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
-          <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-orange-900 flex items-center justify-center mr-3">
-            <Bitcoin className="text-orange-500" />
+          <div className="w-10 h-10 rounded-full bg-orange-100 dark:bg-[#ffcc66]/40 flex items-center justify-center mr-3">
+            <Bitcoin className="text-[#ffcc66]" />
           </div>
           <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white">
             Crypto Prices
@@ -105,7 +105,7 @@ export default function CryptoPrice() {
                 {Math.abs(cryptoData.bitcoin.change24h).toFixed(2)}%
               </p>
             </div>
-            <p className="text-2xl font-bold mt-1">{formatNumber(cryptoData.bitcoin.price)}</p>
+            <p className="text-2xl font-bold mt-1 dark:text-white">{formatNumber(cryptoData.bitcoin.price)}</p>
           </div>
 
           <div>
@@ -116,7 +116,7 @@ export default function CryptoPrice() {
                 {Math.abs(cryptoData.ethereum.change24h).toFixed(2)}%
               </p>
             </div>
-            <p className="text-2xl font-bold mt-1">{formatNumber(cryptoData.ethereum.price)}</p>
+            <p className="text-2xl font-bold mt-1 dark:text-white">{formatNumber(cryptoData.ethereum.price)}</p>
           </div>
 
           <div className="pt-2 text-xs text-gray-500 dark:text-gray-400">

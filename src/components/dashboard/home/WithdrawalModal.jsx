@@ -182,13 +182,13 @@ const WithdrawalModal = ({
         setIsWithdrawalModalOpen(false);
       }}
     >
-      <div className="flex flex-row items-center justify-between w-full text-black">
-        <p className="text-2xl font-semibold text-black leading-tighter">
+      <div className="flex flex-row items-center justify-between w-full text-black dark:text-white">
+        <p className="text-2xl font-semibold  leading-tighter">
           Withdraw Fund
         </p>
         <IoClose
           size="20"
-          className="text-black cursor-pointer"
+          className=" cursor-pointer"
           onClick={() => {
             setWithdrawalData({
               isOTPSentForWithdrawal: false,
@@ -215,14 +215,14 @@ const WithdrawalModal = ({
       </div>
 
       <div className="w-full">
-        <p className="text-base">
+        <p className="text-base text-black dark:text-white">
           Enter the amount you wish to withdraw from your account. Please note
           that the withdrawal request will be approved within 0 to 8 hours
         </p>
       </div>
 
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">Select Wallet</label>
+        <label className="block font-normal text-black dark:text-white">Select Wallet</label>
         <Select
           options={[
             {
@@ -245,27 +245,27 @@ const WithdrawalModal = ({
       </div>
 
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">
+        <label className="block font-normal text-black dark:text-white">
           Withdrawal Method
         </label>
-        <div className="bg-gray-100 border border-gray-300 rounded-md px-3 py-2 mt-1 text-black">
+        <div className="bg-gray-100 border border-gray-300 rounded-md px-3 py-2 mt-1 text-black ">
           Withdrawal Wallet
         </div>
       </div>
 
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">Enter Amount</label>
+        <label className="block font-normal text-black dark:text-white">Enter Amount</label>
         <input
           type="text"
           name="amount"
-          className="w-full bg-white px-2.5 py-2 border rounded-md text-black border-solid border-slate-200 outline-none mt-1 !ml-0"
+          className="w-full bg-white px-2.5 py-2 border rounded-md text-black  border-solid border-slate-200 outline-none mt-1 !ml-0"
           onChange={(e) => handleWithdrawalDataChange("amount", e.target.value)}
           value={withdrawalData.amount}
         />
       </div>
 
       <div className="w-full mt-6">
-        <label className="block font-normal text-black">
+        <label className="block font-normal text-black dark:text-white">
           Enter Your Security Pin
         </label>
         <input
@@ -281,7 +281,7 @@ const WithdrawalModal = ({
 
       {withdrawalData.isOTPSentForWithdrawal && (
         <div className="w-full mt-4">
-          <label className="block font-normal text-black">Enter OTP</label>
+          <label className="block font-normal text-black dark:text-white">Enter OTP</label>
           <input
             type="text"
             name="otp"
@@ -293,7 +293,7 @@ const WithdrawalModal = ({
       )}
 
       <Button
-        className="mt-3"
+        className="mt-3 bg-[#cf9520] font-semibold hover:bg-[#8d5f03]"
         onClick={handleWithdrawalSubmit}
         loading={withdrawalData.isLoading}
       >

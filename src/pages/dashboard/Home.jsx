@@ -180,20 +180,14 @@ export default function Home() {
   };
 
   return (
-    <div className="space-y-6 relative">
+    <div className="space-y-6 relative px-5 overflow-hidden transition-colors duration-300 bg-white dark:bg-[#121212]">
       {/* Background design elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-20 left-10 w-64 h-64 rounded-full bg-blue-500 opacity-5"></div>
-        <div className="absolute top-40 right-20 w-96 h-96 rounded-full bg-green-500 opacity-5"></div>
-        <div className="absolute bottom-20 left-40 w-72 h-72 rounded-full bg-yellow-500 opacity-5"></div>
-        <div className="absolute -bottom-10 right-1/4 w-80 h-80 rounded-full bg-purple-500 opacity-5"></div>
-        
-        {/* Diagonal lines */}
-        <div className="absolute top-0 left-0 w-full h-full opacity-5">
-          <div className="absolute top-0 left-1/4 w-0.5 h-full bg-gray-400 transform rotate-45"></div>
-          <div className="absolute top-0 right-1/4 w-0.5 h-full bg-gray-400 transform -rotate-45"></div>
-        </div>
+       <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
       </div>
+
 
       {/* Stats cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
@@ -229,38 +223,38 @@ export default function Home() {
       
       {/* Wallets section */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10">
-        <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+        <div className="lg:col-span-2 bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <h3 className=" font-semibold tracking-wide text-gray-800 dark:text-white mb-4 text-2xl">
             Wallet Overview
           </h3>
           <div className="grid grid-cols-2 gap-4">
             
             
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
+            <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
               <p className="text-xl text-gray-600 dark:text-gray-400">
                 ROI Wallet
               </p>
-              <p className="text-2xl font-semibold">{userData.wallets.roi}</p>
+              <p className="text-2xl font-semibold dark:text-white">{userData.wallets.roi}</p>
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
+            <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
               <p className="text-xl text-gray-600 dark:text-gray-400">
                 R&B Wallet
               </p>
-              <p className="text-2xl font-semibold">{userData.wallets.rb}</p>
+              <p className="text-2xl font-semibold dark:text-white">{userData.wallets.rb}</p>
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
+            <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
               <p className="text-xl text-gray-600 dark:text-gray-400">
                 Extra Income Wallet
               </p>
-              <p className="text-2xl font-semibold">
+              <p className="text-2xl font-semibold dark:text-white">
                 {userData.wallets.extraIncome}
               </p>
             </div>
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded">
+            <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
               <p className="text-xl text-gray-600 dark:text-gray-400">
                 Voucher
               </p>
-              <p className="text-2xl font-semibold">
+              <p className="text-2xl font-semibold dark:text-white">
                 {userData.wallets.coupons}
               </p>
             </div>
@@ -300,7 +294,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <h3 className="text-2xl font-semibold text-gray-800 tracking-wide dark:text-white mb-4 ml-6">
             Wallet Settings
           </h3>
@@ -323,7 +317,7 @@ export default function Home() {
 
       {/* Referral Links and Career Progress */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
               <Award className="text-green-500" />
@@ -333,9 +327,9 @@ export default function Home() {
             </h3>
           </div>
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 text-gray-600 dark:text-gray-200">
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm ">
                   Current Level
                 </p>
                 <p className="text-lg font-semibold">
@@ -343,7 +337,7 @@ export default function Home() {
                 </p>
               </div>
               <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+                <p className="text-sm text-gray-600 dark:text-gray-300">
                   Next Level
                 </p>
                 <p className="text-lg font-semibold">
@@ -353,11 +347,11 @@ export default function Home() {
             </div>
             
             {/* Total Business Summary */}
-            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg mb-4">
+            <div className="p-4 bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow backdrop-blur-sm mb-4">
               <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-3">Total Business</h4>
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-4 text-gray-600 dark:text-gray-400">
                 <div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                  <p className="text-xs ">
                     Left Total
                   </p>
                   <p className="text-base font-semibold">
@@ -365,7 +359,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-xs text-gray-600 dark:text-gray-400">
+                  <p className="text-xs">
                     Right Total
                   </p>
                   <p className="text-base font-semibold">
@@ -376,9 +370,9 @@ export default function Home() {
             </div>
             
             {/* Current Level Progress */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+            <div className="grid grid-cols-2 gap-4 ">
+              <div className="text-gray-600 dark:text-gray-400">
+                <p className="text-sm ">
                   Left Business (Current Level)
                 </p>
                 <p className="text-lg font-semibold">
@@ -392,8 +386,8 @@ export default function Home() {
                   ></div>
                 </div>
               </div>
-              <div>
-                <p className="text-sm text-gray-600 dark:text-gray-400">
+              <div className="text-gray-600 dark:text-gray-400">
+                <p className="text-sm ">
                   Right Business (Current Level)
                 </p>
                 <p className="text-lg font-semibold">
@@ -412,7 +406,7 @@ export default function Home() {
         </div>
 
         {/* Referral Links Card */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95">
+        <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm">
           <div className="flex items-center mb-4">
             <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
               <Link className="text-green-500" />
@@ -432,7 +426,7 @@ export default function Home() {
                 </p>
               </div>
               <button
-                className="w-32 mr-14 bg-primary h-12 p-2 rounded-lg font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
+                className="w-32 mr-14 bg-primary h-12 p-2  font-normal text-white hover:bg-colorBlue relative cursor-pointer rounded-xl  disabled:cursor-not-allowed"
                 onClick={() =>
                   navigator.clipboard.writeText(userData.referralLinks.left)
                 }
@@ -499,20 +493,20 @@ const StatCard = ({ title, value, change, period, icon }) => {
 
   return (
     <div
-      className="rounded-lg shadow p-6 backdrop-blur-sm bg-opacity-95 dark:bg-opacity-95 bg-cover bg-center"
-      style={{ backgroundImage: `url(${backgroundImage})` }}
+      className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm"
+      // style={{ backgroundImage: `url(${backgroundImage})` }}
     >
       <div className="flex items-center mb-4">
-        <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
+        <div className="w-10 h-10 rounded-full bg-green-1 00 dark:bg-green-900 flex items-center justify-center mr-3">
           {icon}
         </div>
-        <h3 className="text-2xl font-medium text-gray-700 tracking-wide dark:text-gray-500">
+        <h3 className="text-2xl font-medium text-gray-700 tracking-wide dark:text-white">
           {title}
         </h3>
       </div>
       <div className="flex items-end justify-between">
         <div>
-          <div className="text-6xl font-bold text-gray-800 dark:text-gray-500">
+          <div className="text-6xl font-bold text-gray-800 dark:text-white">
             {value}
           </div>
           <div className="flex items-center mt-1">

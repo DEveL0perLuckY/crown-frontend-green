@@ -15,7 +15,7 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
   return (
     <div
       className={clsx(
-        "z-50 flex flex-col transition-all duration-300 ease-in-out h-screen bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700",
+        "z-50 flex flex-col transition-all duration-300 ease-in-out h-screen bg-white dark:bg-[#121212] border-r border-gray-200 dark:border-gray-700",
         isOpen ? "w-64" : "w-20",
         "fixed lg:relative lg:translate-x-0",
         !isOpen && "-translate-x-full lg:translate-x-0"
