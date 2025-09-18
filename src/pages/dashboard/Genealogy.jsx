@@ -53,8 +53,8 @@ export default function Genealogy() {
             key={tab}
             className={`px-4 py-2 font-medium text-sm transition-colors duration-200 ${
               activeTab === tab
-                ? "border-b-2 border-green-500 text-green-600 dark:text-green-400"
-                : "text-gray-700 dark:text-gray-400 hover:text-green-500"
+                ? "border-b-2 border-amber-500 text-amber-600 dark:text-amber-400"
+                : "text-gray-700 dark:text-gray-400 hover:text-amber-500"
             }`}
             onClick={() => setActiveTab(tab)}
           >
@@ -66,6 +66,12 @@ export default function Genealogy() {
       {/* Referral Tab */}
       {activeTab === "Referral" && (
         <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700 shadow p-6 backdrop-blur-sm">
+          {/* Background design elements */}
+       <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      </div>
           <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white mb-4">
             Referral Network
           </h3>
@@ -80,6 +86,12 @@ export default function Genealogy() {
 
           {/* Binary Tree */}
           <div className="bg-white dark:bg-[#121212]  shadow  backdrop-blur-sm mt-6">
+            {/* Background design elements */}
+       <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      </div>
             <div className="p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-lg font-semibold tracking-wide text-gray-800 dark:text-white">
                 Network Structure
@@ -100,7 +112,7 @@ function StatCard({ icon, label, value, growth }) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
       <div className="flex items-center mb-4">
-        <div className="w-10 h-10 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mr-3">
+        <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900 flex items-center justify-center mr-3">
           {icon}
         </div>
         <h3 className="text-lg font-medium text-gray-800 dark:text-gray-300">
@@ -111,7 +123,7 @@ function StatCard({ icon, label, value, growth }) {
         {value}
       </div>
       <div className="flex items-center mt-1">
-        <span className="text-green-600 dark:text-green-400 text-sm font-medium">
+        <span className="text-amber-600 dark:text-amber-400 text-sm font-medium">
           {growth}
         </span>
         <span className="text-gray-600 dark:text-gray-400 text-sm ml-1">

@@ -103,7 +103,7 @@ export default function KYCSettings() {
         <label className="block text-gray-700 dark:text-gray-300 font-medium">Add Document Image</label>
         <div
           className={`py-1.5 px-4 border ${
-            formData.file ? "border-green-500" : "border-gray-300 dark:border-gray-600"
+            formData.file ? "border-amber-500" : "border-gray-300 dark:border-gray-600"
           } rounded-md h-[104px] flex flex-col items-center justify-center cursor-pointer w-full
           bg-white dark:bg-gray-800`}
           onClick={handleFileAttach}
@@ -113,7 +113,7 @@ export default function KYCSettings() {
             <FiUpload className="text-gray-500 dark:text-gray-400" />
             <p
               className={`${
-                formData.file ? "text-green-500" : "text-gray-500 dark:text-gray-400"
+                formData.file ? "text-amber-500" : "text-gray-500 dark:text-gray-400"
               } text-[12px]`}
             >
               {formData.file ? "Document Attached" : "Attach a Document File"}
@@ -130,7 +130,7 @@ export default function KYCSettings() {
         </div>
       </div>
       <Button
-        className="w-full !px-6 !h-10 !mt-3"
+        className="w-full !px-6 !h-10 !mt-3 bg-amber-600 hover:shadow-lg hover:shadow-yellow-500/50 transition duration-300"
         disabled={!formData.file || !formData.docType}
         onClick={handleUpload}
         loading={formData.isUploadLoading}

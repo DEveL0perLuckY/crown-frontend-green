@@ -67,6 +67,12 @@ export default function Vouchers() {
 
   return (
     <div className="w-full">
+      {/* Background design elements */}
+       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      </div>
       {/* Page Header */}
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Voucher</h1>
@@ -80,7 +86,7 @@ export default function Vouchers() {
             onClick={() => setActiveTab("create")}
             className={`py-3 px-4 flex items-center transition duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-md ${
               activeTab === "create"
-                ? "border-b-2 border-green-400 text-gray-900 dark:text-white"
+                ? "border-b-2 border-amber-400 text-gray-900 dark:text-white"
                 : "text-gray-500 dark:text-gray-400"
             }`}
           >
@@ -91,7 +97,7 @@ export default function Vouchers() {
             onClick={() => setActiveTab("list")}
             className={`py-3 px-4 flex items-center transition duration-200 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-t-md ${
               activeTab === "list"
-                ? "border-b-2 border-green-400 text-gray-900 dark:text-white"
+                ? "border-b-2 border-amber-400 text-gray-900 dark:text-white"
                 : "text-gray-500 dark:text-gray-400"
             }`}
           >

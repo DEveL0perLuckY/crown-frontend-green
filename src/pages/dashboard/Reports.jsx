@@ -103,7 +103,7 @@ export default function Reports() {
                     <span
                       className={`${
                         item.status === "APPROVED"
-                          ? "text-green-500"
+                          ? "text-amber-500"
                           : item.status === "PENDING"
                           ? "text-yellow-500"
                           : "text-red-500"
@@ -133,7 +133,13 @@ export default function Reports() {
   return (
     <div className="w-full">
       {/* Page header */}
-      <div className="mb-6">
+      <div className="mb-6 ml-4">
+        {/* Background design elements */}
+       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      </div>
         <h1 className="text-2xl font-semibold text-gray-900 dark:text-white">Reports</h1>
         <p className="text-gray-600 dark:text-gray-400">Let's check your update today</p>
       </div>
@@ -147,7 +153,7 @@ export default function Reports() {
               onClick={() => setActiveTab(tab.key)}
               className={`py-3 px-4 flex items-center whitespace-nowrap transition-all ${
                 activeTab === tab.key
-                  ? "border-b-2 border-green-500 text-green-500 dark:text-green-400 dark:border-green-400"
+                  ? "border-b-2 border-amber-500 text-amber-500 dark:text-amber-400 dark:border-amber-400"
                   : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
               }`}
             >

@@ -159,7 +159,7 @@ export default function Investment() {
                   </div>
 
                   <Button
-                    className="w-full mt-6 bg-green-500 hover:bg-green-600"
+                    className="w-full mt-6 bg-amber-500 hover:bg-amber-600"
                     onClick={() => {
                       setActiveTab("allPlans");
                       setTimeout(() => {
@@ -230,6 +230,11 @@ export default function Investment() {
         className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  shadow p-6 backdrop-blur-sm"
         data-component="AllPlans"
       >
+        <div className="absolute inset-0">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      </div>
         {renderTabContent()}
       </div>
     </div>

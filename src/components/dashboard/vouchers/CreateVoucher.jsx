@@ -106,7 +106,7 @@ export default function CreateVoucher() {
           className={`w-full bg-gray-100 dark:bg-[#1E293B] text-gray-900 dark:text-white px-4 py-2 rounded-md border ${
             formErrors.amount 
               ? "border-red-500 focus:ring-red-500" 
-              : "border-gray-300 dark:border-gray-700 focus:ring-green-500"
+              : "border-gray-300 dark:border-gray-700 focus:ring-amber-500"
           } focus:outline-none focus:ring-1`}
           onChange={(e) => handleFromDataChange("amount", e.target.value)}
           value={formData.amount}
@@ -138,7 +138,7 @@ export default function CreateVoucher() {
       </div>
 
       <button
-        className="w-full rounded-md px-4 py-2 text-white  bg-green-500 hover:bg-green-600"
+        className="w-full rounded-md px-4 py-2 text-white  bg-amber-500 hover:bg-amber-600"
         loading={loadingStates.isVoucherLoading}
         onClick={handleVoucherSubmit}
         disabled={!!formErrors.amount || !formData.selectedWallet}

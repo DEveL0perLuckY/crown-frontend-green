@@ -172,7 +172,7 @@ export default function SubmitTicket() {
         </div>
 
         <Button
-          className="mt-4"
+          className="mt-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-4 py-2 rounded-md shadow-md hover:shadow-lg"
           onClick={handleTicketSubmit}
           loading={allInputs.isLoading}
         >

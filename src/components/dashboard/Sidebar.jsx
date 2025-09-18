@@ -66,7 +66,7 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
           {/* Support */}
           <button
             onClick={() => navigate("/dashboard/tickets/submit-ticket")}
-            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-green-500 transition"
+            className="flex items-center gap-2 text-gray-700 dark:text-gray-300 hover:text-amber-500 transition"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +121,7 @@ function SidebarItem({ name, route, icon: Icon, isActive, handleRoute, isOpen })
       className={clsx(
         "flex items-center px-4 py-2 cursor-pointer",
         isActive
-          ? "bg-gray-50 dark:bg-gray-700 text-green-600 dark:text-green-400"
+          ? "bg-gray-50 dark:bg-gray-700 text-amber-600 dark:text-amber-400"
           : "text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
       )}
       onClick={() => handleRoute(route)}

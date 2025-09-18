@@ -97,6 +97,12 @@ const Settings = () => {
 
   return (
     <div className="max-w-full w-full md:max-w-[80%] mx-auto text-gray-800 dark:text-gray-200">
+      {/* Background design elements */}
+       <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 right-0 bottom-0 w-[400px] h-[400px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#FFCC66]/10 rounded-full blur-3xl" />
+        <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:50px_50px]" />
+      </div>
       <div className="w-full h-[200px] md:h-[240px] lg:h-[280px] relative">
         <input
           type="file"

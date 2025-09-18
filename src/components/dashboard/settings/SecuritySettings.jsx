@@ -157,7 +157,7 @@ export default function SecuritySettings() {
           ))}
           <div className="w-full md:flex md:items-center md:justify-end">
             <Button
-              className="w-full sm:!w-[10%]"
+              className="w-full sm:!w-[10%] bg-sky-600 hover:shadow-lg hover:shadow-blue-500/50 transition duration-300"
               onClick={handleSavePassword}
               loading={allStates.isSaveButtonLoading}
             >
@@ -178,7 +178,7 @@ export default function SecuritySettings() {
           ))}
           <div className="w-full md:flex md:items-center md:justify-end">
             <Button
-              className="w-full sm:!w-[10%]"
+              className="w-full sm:!w-[10%] bg-sky-600 hover:shadow-lg hover:shadow-blue-500/50 transition duration-300"
               onClick={handleSavePin}
               loading={allStates.isPinSaveButtonLoading}
             >

@@ -42,7 +42,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
               onClick={() => setActiveTab("active")}
               className={`inline-block p-4 rounded-t-lg ${
                 activeTab === "active" 
-                  ? "text-green-600 border-b-2 border-green-600 dark:text-green-500 dark:border-green-500" 
+                  ? "text-amber-600 border-b-2 border-amber-600 dark:text-amber-500 dark:border-amber-500" 
                   : "hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
               }`}
             >
@@ -54,7 +54,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
               onClick={() => setActiveTab("used")}
               className={`inline-block p-4 rounded-t-lg ${
                 activeTab === "used" 
-                  ? "text-green-600 border-b-2 border-green-600 dark:text-green-500 dark:border-green-500" 
+                  ? "text-amber-600 border-b-2 border-amber-600 dark:text-amber-500 dark:border-amber-500" 
                   : "hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
               }`}
             >
@@ -70,13 +70,13 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
           {activeVouchers.length > 0 ? (
             activeVouchers.map((voucher, index) => (
               <div key={index} className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700  rounded-lg shadow p-6 backdrop-blur-sm overflow-hidden ">
-                <div className="p-4 flex justify-between items-center bg-green-500">
+                <div className="p-4 flex justify-between items-center bg-amber-500">
                   <div className="flex items-center">
                     <RiTicketLine className="text-white text-2xl mr-2" />
                     <span className="text-white font-bold">{voucher.voucher_id}</span>
                   </div>
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    getVoucherStatus(voucher) === "Active" ? "bg-white text-green-500" :
+                    getVoucherStatus(voucher) === "Active" ? "bg-white text-amber-500" :
                     getVoucherStatus(voucher) === "Expired" ? "bg-yellow-100 text-yellow-600" :
                     "bg-gray-200 text-gray-600"
                   }`}>
@@ -167,7 +167,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
                   <tr key={index}>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <RiTicketLine className="text-green-500 mr-2" />
+                        <RiTicketLine className="text-amber-500 mr-2" />
                         <span className="text-gray-900 dark:text-white">{voucher.voucher_id}</span>
                       </div>
                     </td>
@@ -182,7 +182,7 @@ export default function AllVouchers({ vouchers = [], fetchVouchers }) {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
-                        <FaBox className="text-green-500 mr-2" />
+                        <FaBox className="text-amber-500 mr-2" />
                         <span className="text-gray-900 dark:text-white">{voucher.package_name || "Unknown Package"}</span>
                       </div>
                     </td>

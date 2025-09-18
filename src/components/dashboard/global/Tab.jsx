@@ -25,7 +25,7 @@ export default function Tab({ data }) {
               className={clsx(
                 "py-2 px-4 cursor-pointer transition-all",
                 isSelected
-                  ? "border-b-4 font-bold text-black dark:text-white border-green-500 bg-white dark:bg-gray-900"
+                  ? "border-b-4 font-bold text-black dark:text-white border-yellow-500 bg-white dark:bg-gray-900"
                   : "text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700",
                 arr.length - 1 === index && "rounded-tr-md",
                 index === 0 && "rounded-tl-md"
@@ -38,7 +38,7 @@ export default function Tab({ data }) {
         })}
       </div>
 
-      <div className="mt-2 bg-white dark:bg-gray-800 p-4 rounded-b-md shadow">
+      <div className="bg-white dark:bg-gray-700/20 border border-gray-200 dark:border-gray-700 rounded-lg shadow  backdrop-blur-sm mt-2  p-4 rounded-b-md">
         {children}
       </div>
     </>
